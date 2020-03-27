@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cómo funciona el tiempo en Javascript</title>
+  </head>
+  <body>
+    <script>
+      console.log('a');
+      // esta función la manda a la cola de tareas y al final del programa la ejecuta
+      setTimeout(() => console.log('b'), 0);
+      console.log('c');
+
+      // En este caso el ciclo for hace que el ciclo itere muchas veces (10 ceros) y no imprime la letra d hasta pasar varios minutos.
+
+      setTimeout(() => console.log('d'), 2000);
+
+      for (var i = 0; i < 10000000000; i++) {}
+    </script>
+  </body>
+</html>
