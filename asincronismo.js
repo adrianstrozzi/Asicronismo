@@ -46,6 +46,9 @@ var daniel = new Desarrollador('Daniel ', 'Dominguez', 1.80)
 var arturo = new Desarrollador('Arturo ', 'Tello', 1.70)
 var paula = new Persona('Paula ', 'Torres', 1.82)
 
+// Aquí se está indicando que a la variable sacha, se le va a agregar el método saludar que está en la class Desarrollador o Persona
+// finalmente se aplicará la función responderSaludo
+
 sacha.saludar()
 daniel.saludar(responderSaludo)
 arturo.saludar(responderSaludo)
