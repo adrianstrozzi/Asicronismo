@@ -1,29 +1,33 @@
-// Primero definimos como variables al URL de la API
-// Segundo definimos como variable las consultas que vamos a hacer a people dentro de la API
-
 const API_URL = 'https://swapi.co/api/'
 const PEOPLE_URL = 'people/:id'
-
-// En nuestra variable lukeUrl estamos haciendo una consulta a la API y luego a people :id que en este caso queremos remplazar por 1
-// const lukeUrl = `${API_URL}${PEOPLE_URL.replace(':id', 4)}`
-// En esta variable indicamos que queremos que nuestra consulta se haga en otra página
 const opts = { crossDomain: true }
-// Aquí estamos creando una función para que con el parámetro character nos de un mensaje con el atributo .name
-const onPeopleResponse = function (character) {
-  console.log(`Hola yo soy ${character.name}, mido ${character.height} cm y nací el ${character.birth_year}.`)
-}
 
-function obtenerPersonaje(id) {
+// Se agregó el parámetro callback a nuestra función
+
+function obtenerPersonaje(id, callback) {
   const url = `${API_URL}${PEOPLE_URL.replace(':id', id)}`
-  $.get(url, opts, onPeopleResponse)
+
+  $.get(url, opts, function (character) {
+    console.log(`Hola yo soy ${character.name}, mido ${character.height} cm y nací el ${character.birth_year}.`)
+
+    // Lo que va a hacer es que si tiene el parámetro callback se llamará a callback
+    if (callback) {
+      callback()
+    }
+  })
 }
 
-// Para hacer consultas en Jquery se utiliza el método $.get agregamos nuestras variables previamente definidas
-// $.get(url, opts, onPeopleResponse)
+// Si pedimos los personajes de esta manera aparecerán en orden
 
+obtenerPersonaje(1, function () {
+  obtenerPersonaje(2, function () {
+    obtenerPersonaje(3, function () {
+      obtenerPersonaje(4, function () {
+        obtenerPersonaje(5, function () {
 
-// Al llamar a la función y el id, podemos ver en el inspector de Chrome que no llegan en este orden
-// podemos checar la API y darnos cuenta que no están en este orden, así nos damos cuenta del asincronismo de JS
-obtenerPersonaje(1)
-obtenerPersonaje(2)
-obtenerPersonaje(3)
+        })
+      })
+    })
+  })
+})
+
