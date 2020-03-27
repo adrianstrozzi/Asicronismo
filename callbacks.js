@@ -17,7 +17,44 @@ function onError(id) {
 }
 
 obtenerPersonaje(1)
-  .then(function (character) {
+  .then((character) => {
     console.log(`Hola yo soy ${character.name}, mido ${character.height} cm y nací el ${character.birth_year}.`)
+    return obtenerPersonaje(2)
+  })
+  .then(character => {
+    console.log(`Hola yo soy ${character.name}, mido ${character.height} cm y nací el ${character.birth_year}.`)
+    return obtenerPersonaje(3)
+  })
+  .then(character => {
+    console.log(`Hola yo soy ${character.name}, mido ${character.height} cm y nací el ${character.birth_year}.`)
+    return obtenerPersonaje(4)
+  })
+  .then(character => {
+    console.log(`Hola yo soy ${character.name}, mido ${character.height} cm y nací el ${character.birth_year}.`)
+    return obtenerPersonaje(5)
+  })
+  .then(character => {
+    console.log(`Hola yo soy ${character.name}, mido ${character.height} cm y nací el ${character.birth_year}.`)
+    return obtenerPersonaje(6)
+  })
+  .then(character => {
+    console.log(`Hola yo soy ${character.name}, mido ${character.height} cm y nací el ${character.birth_year}.`)
+    return obtenerPersonaje(7)
+  })
+  .then(character => {
+    console.log(`Hola yo soy ${character.name}, mido ${character.height} cm y nací el ${character.birth_year}.`)
+    return obtenerPersonaje(8)
+  })
+  .then(character => {
+    console.log(`Hola yo soy ${character.name}, mido ${character.height} cm y nací el ${character.birth_year}.`)
+    return obtenerPersonaje(9)
+  })
+  .then(character => {
+    console.log(`Hola yo soy ${character.name}, mido ${character.height} cm y nací el ${character.birth_year}.`)
+    return obtenerPersonaje(10)
+  })
+  .then(character => {
+    console.log(`Hola yo soy ${character.name}, mido ${character.height} cm y nací el ${character.birth_year}.`)
+    return obtenerPersonaje(11)
   })
   .catch(onError)
